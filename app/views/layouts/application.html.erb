@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<TITLE><%= title %> </TITLE>
-	<%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	
+	<TITLE><%= title %> </TITLE>
+	  <%= csrf_meta_tags %>
+	  <!--[if lt IE 9]>
+	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	  <![endif]-->
+	  <%= stylesheet_link_tag    'blueprint/screen', media: 'screen'%>
+	  <%= stylesheet_link_tag    'blueprint/print', media: 'print'%>
+	  <%= csrf_meta_tags %>
+	  <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie'%><![endif]-->
+	  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+	</head>
+	
+	<body>
+		<div class="container">
+			<header>
+				<%= image_tag("lan.jpg", :alt => "Sample App", :class => "round") %>
+				<nav class="round">
+					<ul>
+						<li><%= link_to "home", '/pages/home' %></li>
+						<li><%= link_to "help", '#' %></li>
+						<li><%= link_to "Sign in", '#' %></li>
+					</ul>
+				</nav>
+			</header>
+			<section class="round">
+			<%= yield %>
+			</section>
+		</div>
 
-<%= yield %>
-
-</body>
+	</body>
 </html>
