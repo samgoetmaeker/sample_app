@@ -1,9 +1,11 @@
 .container{
+	margin-top: 10px;
 	width: 710px;
 }
 
 body{
 	background: #282828 ;
+
 }
 
 header{
@@ -16,7 +18,7 @@ header img{
 }
 
 section{
-	margin-top: 1em;
+	margin-top: 2em;
 	font-size: 120%;
 	padding: 20px;
 	background: #F0F0F0  ;
@@ -84,4 +86,15 @@ a.signup_button{
 	-maz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
+}
+
+footer {
+	text-align: center;
+	margin-top: 10px;
+	width: 710px;
+	margin-left: auto;
+	margin-right: auto;
+}
+footer nav{
+	float: none;
 }
