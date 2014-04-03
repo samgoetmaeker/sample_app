@@ -15,4 +15,13 @@ module ApplicationHelper
 		
 	end
 
+	def avatar_url(test)
+		gravatar_id = Digest::MD5.hexdigest(test.downcase)
+		"http://gravatar.com/avatar/#{gravatar_id}.png?s=200"
+		
+
+
+	end
+
+
 end

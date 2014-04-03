@@ -29,6 +29,11 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
+
+gem 'gravatar_image_tag'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
