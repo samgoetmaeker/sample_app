@@ -1,5 +1,5 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Nieuw profiel</h1>
+<p>Gelieve alle onderstaande velden in te vullen voor dat u op "Create profile" clickt</p>
 
 
 <%= form_for @user do |u| %>
@@ -14,12 +14,20 @@
 	<% end %>
 
 	<p>
-		<%= u.label :nickname %><br />
+		<%= u.label :nickname %>
 		<%= u.text_field :nickname %>
 	</p>
 	<p>
-		<%= u.label :email %><br />
+		<%= u.label :email %>
 		<%= u.text_field :email %>
+	</p>
+	<p>
+		<%= u.label :password %>
+		<%= u.password_text_field :password %>
+	</p>
+	<p>
+		<%= u.label :password_confirmation %>
+		<%= u.password_text_field :password_confirmation %>
 	</p>
 	<p>
 		<%= u.submit "Create profile" %>
