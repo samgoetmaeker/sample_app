@@ -23,11 +23,12 @@
 	</p>
 	<p>
 		<%= u.label :password %>
-		<%= u.password_text_field :password %>
+		<%= password_field_tag(:password) %>
 	</p>
 	<p>
 		<%= u.label :password_confirmation %>
-		<%= u.password_text_field :password_confirmation %>
+		<%= password_field_tag(:password) %>
+		
 	</p>
 	<p>
 		<%= u.submit "Create profile" %>
