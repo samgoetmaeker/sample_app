@@ -1,2 +1,28 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+
+<%= form_for @user do |u| %>
+
+	<% if @user.errors.any? %>
+		<h2>Errors:</h2>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<p>
+		<%= u.label :nickname %><br />
+		<%= u.text_field :nickname %>
+	</p>
+	<p>
+		<%= u.label :email %><br />
+		<%= u.text_field :email %>
+	</p>
+	<p>
+		<%= u.submit "Create profile" %>
+	</p>
+
+<% end %>
