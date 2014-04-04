@@ -1,6 +1,5 @@
-
 <% provide(:title, @user.nickname) %>
-<%= image_tag avatar_url(@user.email) %>
+<%= image_tag avatar_url(@user) %>
 <h2><%= @user.nickname %></h2>
 
 <p><b>email : </b><%= @user.email %></p>
