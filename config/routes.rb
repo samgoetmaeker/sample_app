@@ -9,7 +9,7 @@ match "/about"    => "pages#about", via: [:get, :post]
 match "/help"     => "pages#help", via: [:get, :post]
 match "/signup"   => "users#new", via: [:get]
 match "/signin"   => "sessions#new",         via: [:get]
-match "/signout"  => "sessions#destroy",     via: [:delete]
+match "/signout"  => "sessions#destroy",     via:  [:get, :delete]
 
 
 
