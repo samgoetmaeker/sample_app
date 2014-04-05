@@ -23,7 +23,8 @@
 				<%= u.label :email %><br />
 				<%= u.label :avatar_url %><br />
 				<%= u.label :password %><br />
-				<%= u.label :password_confirmation,"Confirmation" %>
+				<%= u.label :password_confirmation,"Confirmation" %><br />
+				<%= u.label :admin %>
 			</td>
 			<td>
 				<%= u.text_field :nickname %><br />
@@ -31,6 +32,7 @@
 				<%= u.text_field :avatar_url %><br />
 				<%= u.password_field :password %><br />
 				<%= u.password_field :password_confirmation %>
+				<%= u.check_box :admin %>
 			</td>
 		</tr>
 
