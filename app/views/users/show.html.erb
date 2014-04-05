@@ -1,6 +1,21 @@
 
-<% provide(:title, @user.nickname) %>
-<%= image_tag avatar_url(@user.email) %>
-<h2><%= @user.nickname %></h2>
+<table class="profile" sumary="profile information">
+	<tr>
+		<td class="main">
+			<h1>	
+				<%= image_tag avatar_url(@user) %>
+				<%= @user.nickname %>
+			</h1>
+		</td>
+		<td class="sidebar round">
+			<strong>nickame</strong><br />
+			<%= @user.nickname %><br />
+			<strong>email</strong><br />
+			<%= @user.email %><br />
+			<strong>URL</strong><br />
+			<%= link_to user_path(@user),link_to user_path(@user) %>
 
-<p><b>email : </b><%= @user.email %></p>
+
+		</td>
+	</tr>
+</table>
