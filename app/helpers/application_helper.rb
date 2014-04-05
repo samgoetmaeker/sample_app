@@ -17,6 +17,7 @@ module ApplicationHelper
 		
 	end
 
+
 	def avatar_url(user)
 		if user.avatar_url.present?
 			user.avatar_url
@@ -26,6 +27,7 @@ module ApplicationHelper
 		end
 
 	end
+
 
 
 end
