@@ -1,0 +1,43 @@
+
+<%= form_for @user do |u| %>
+
+	<% if @user.errors.any? %>
+		<h2>Errors:</h2>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	
+	<table>
+	
+
+		<tr>
+			<td>
+				<%= u.label :nickname %><br />
+				<%= u.label :email %><br />
+				<%= u.label :avatar_url %><br />
+				<%= u.label :password %><br />
+				<%= u.label :password_confirmation,"Confirmation" %>
+			</td>
+			<td>
+				<%= u.text_field :nickname %><br />
+				<%= u.text_field :email %><br />
+				<%= u.text_field :avatar_url %><br />
+				<%= u.password_field :password %><br />
+				<%= u.password_field :password_confirmation %>
+			</td>
+		</tr>
+
+	</table>
+	
+	<p>
+		
+		<%= u.submit "Create profile", class: "btn btn-large btn-primary" %>
+	</p>
+
+
+
+<% end %>
