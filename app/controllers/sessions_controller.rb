@@ -18,6 +18,7 @@ include SessionsHelper
 
   def destroy
     sign_out
+    flash[:success] = "you have been signed out"
     redirect_to root_path 
   end
   

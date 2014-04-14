@@ -1,5 +1,5 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1>Users</h1>
 <%= will_paginate %>
 <ul class="users">
   <% @users.each do |user| %>
@@ -7,7 +7,7 @@
       <%= image_tag avatar_url(user) %>
       <%= link_to user.nickname, user %>
       <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
+    | <%= button_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
  	  <% end %>
     </li>
