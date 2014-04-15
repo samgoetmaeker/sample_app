@@ -3,13 +3,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-#group :production, :staging do
+# Database to work with heroku
+group :production, :staging do
   gem "pg"
-#end
+end
 
-#group :development, :test do
-#  gem "sqlite3-ruby", "~> 1.3.9", :require => "sqlite3"
-#end
+# database to work with Rails Console
+group :development, :test do
+  gem "sqlite3-ruby", :require => "sqlite3"
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

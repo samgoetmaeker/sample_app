@@ -2,9 +2,14 @@
 <h1>Users</h1>
 
 
-  <% @Challenges.each do |chal| %>
+  <% @challenge.each do |challenge| %>
 
 
-<b>name : </b><%= challenge.player_one,chal %><br />
-<b>name : </b><%= challenge.player_two,chal %>
+<b>name : </b><%= challenge.player_one %><br />
+<b>name : </b><%= challenge.player_two %><br />
+<b>game : </b><%= challenge.challenge_game %><br />
+Challenge created <%= time_ago_in_words(challenge.created_at) %> ago. by <%= link_to challenge.user_id, user_path(challenge.user_id) %>
+<!-- hier wil ik de username die de challenge gemaakt heeft-->
+<hr>
+
 <% end %>

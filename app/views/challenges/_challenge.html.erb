@@ -1,0 +1,12 @@
+<li>
+  <span class="content"><%= challenge.player_one %> vs <%= challenge.player_two %></span><br />
+  <b>game :</b><%= challenge.challenge_game %><br />
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(challenge.created_at) %> ago.
+  </span>
+  <% if current_user?(challenge.user) %>
+    <%= button_to "delete", challenge, method: :delete,
+                                     confirm: "You sure?",
+                                     title: " vs " %>
+  <% end %>
+</li>

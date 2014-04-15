@@ -6,24 +6,22 @@
 				<%= image_tag avatar_url(@user) %>
 				<%= @user.nickname %>
 			</h1>
+				<section class="round">
+					Create new <%= link_to "challenge", new_challenge_path %> for 2 coins
+				    <% if @user.challenges.any? %>
+				    	<h4>challenges (<%= @user.challenges.count %>)</h4>
+						<ol class="challenges">
+							<%= render @challenges %>
+						</ol>
+						<%= will_paginate @challenges %>
+					<% end %>
+		  		</section>
 		</td>
 		<td class="sidebar round">
 			<strong>nickame</strong><br />
 			<%= @user.nickname %><br />
 			<strong>email</strong><br />
 			<%= @user.email %><br />
-			
-
-
 		</td>
 	</tr>
 </table>
-  <div class="span8">
-    <% if @user.challenges.any? %>
-      <h3>challenges (<%= @user.challenges.count %>)</h3>
-      <ol class="challenges">
-        <%= render @challenges %>
-      </ol>
-      <%= will_paginate @challenges %>
-    <% end %>
-  </div>

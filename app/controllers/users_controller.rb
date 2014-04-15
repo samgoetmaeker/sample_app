@@ -53,12 +53,12 @@ class UsersController < ApplicationController
 	      render 'new'
 	    end
 	end
-
+	# chal = Challenge.create(:player_one => "pittamadam",:player_two => "poldendrol", :user_id => "16")		
 	# user = User.create(:nickname => "foo", :email => "foo@bar.com", :password => "foobar", password_confirmation  => "foobar")
 	private
 
 	def user_params
-		params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :avatar_url )
+		params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :avatar_url)
 	end
 
 
