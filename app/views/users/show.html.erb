@@ -18,3 +18,12 @@
 		</td>
 	</tr>
 </table>
+  <div class="span8">
+    <% if @user.challenges.any? %>
+      <h3>challenges (<%= @user.challenges.count %>)</h3>
+      <ol class="challenges">
+        <%= render @challenges %>
+      </ol>
+      <%= will_paginate @challenges %>
+    <% end %>
+  </div>

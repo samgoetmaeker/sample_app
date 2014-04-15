@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	#attr_accessible :name, :email, :password, :password_confirmation
 	#attr_acessor :password
-	
+	has_many :challenges, dependent: :destroy
 	has_secure_password
 
 

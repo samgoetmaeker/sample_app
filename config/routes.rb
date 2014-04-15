@@ -1,6 +1,7 @@
 SampleApp::Application.routes.draw do
 
 resources :users
+resources :challenges
 
 resources :sessions, only: [:new, :create, :destroy]
 root  "pages#home"

@@ -6,11 +6,13 @@
     <li>
       <%= image_tag avatar_url(user) %>
       <%= link_to user.nickname, user %>
-      <% if current_user.admin? && !current_user?(user) %>
-    | <%= button_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
- 	  <% end %>
-    </li>
-  <% end %>
+
+		    <% if current_user.admin? && !current_user?(user) %>
+		    | <%= button_to "delete", user, method: :delete,
+		                                  data: { confirm: "You sure?" } %>
+		 	  <% end %>
+		    </li>
+		  <% end %>
+
 </ul>
 <%= will_paginate %>
