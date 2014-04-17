@@ -1,20 +1,29 @@
 <% provide(:title, 'All users') %>
 <h1>Users</h1>
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-    	<section>
-      <%= image_tag avatar_url(user) %>
-      <%= link_to user.nickname, user %> |
-      <%= user.coins %> |
-      <%= user.total_score %>
-
-		    <% if current_user.admin? && !current_user?(user) %>
-		    | <%= button_to "delete", user, method: :delete,
-		                                  data: { confirm: "You sure?" }  ,class: "btn btn-small btn-primary" %>
-		 	  <% end %>
-		 	</section>
-		    </li>
-		  <% end %>
-
-</ul>
+<table class="users">
+	<thead>
+		<tr>
+			<td>Foto</td>
+			<td>nickname</td>
+			<td>coins</td>
+			<td>Score</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+    <% @users.each do |user| %>
+		<tr>
+			<td><%= image_tag avatar_url(user) %></td> 	
+			<td><%= link_to user.nickname, user %></td>
+			<td><%= user.coins %></td>
+			<td><%= user.total_score %></td>
+			<td>
+				<% if current_user.admin? && !current_user?(user) %>
+			    <%= button_to "delete", user, method: :delete,
+			    	data: { confirm: "You sure?" }  ,class: "btn btn-small btn-primary" %>
+		    <% end %>
+		  </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
