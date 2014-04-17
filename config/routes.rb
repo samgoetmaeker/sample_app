@@ -5,13 +5,12 @@ resources :challenges
 
 resources :sessions, only: [:new, :create, :destroy]
 root  "pages#home"
-match "/contact"    => "pages#contact", via: [:get, :post]
-match "/rules"      => "pages#rules", via: [:get, :post]
-match "/help"       => "pages#help", via: [:get, :post]
-match "/challenges" => "pages#challenges", via: [:get, :post]
-match "/signup"     => "users#new", via: [:get]
-match "/signin"     => "sessions#new",         via: [:get]
-match "/signout"    => "sessions#destroy",     via:  [:get, :delete]
+match "/contact"      => "pages#contact", via: [:get, :post]
+match "/rules"        => "pages#rules", via: [:get, :post]
+match "/challenges"   => "pages#challenges", via: [:get, :post]
+match "/signup"       => "users#new", via: [:get]
+match "/signin"       => "sessions#new",         via: [:get]
+match "/signout"      => "sessions#destroy",     via:  [:get, :delete]
 
 
 

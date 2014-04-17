@@ -10,9 +10,9 @@
 					Create new <%= link_to "challenge", new_challenge_path %> for 2 coins
 				    <% if @user.challenges.any? %>
 				    	<h4>challenges (<%= @user.challenges.count %>)</h4>
-						<ol class="challenges">
+						<ul class="challenges">
 							<%= render @challenges %>
-						</ol>
+						</ul>
 						<%= will_paginate @challenges %>
 					<% end %>
 		  		</section>
@@ -22,6 +22,8 @@
 			<%= @user.nickname %><br />
 			<strong>email</strong><br />
 			<%= @user.email %><br />
+			<strong>coins</strong><br />
+			<%= @user.coins %><br />
 		</td>
 	</tr>
 </table>

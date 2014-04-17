@@ -14,7 +14,10 @@ module ApplicationHelper
 
 	def logo
 		image_tag("lan.jpg", :alt => "Sample App", :class => "round")
-		
+	end
+
+	def versus
+		image_tag("versus.png", :class => "round")
 	end
 
 

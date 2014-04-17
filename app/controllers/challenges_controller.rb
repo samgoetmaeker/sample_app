@@ -4,17 +4,28 @@
 
 	def new
   		@challenge = Challenge.new
+  		@user = User.all
+  		@selected_user = @user[2]
    	end
 	
 	def create
-		@challenge = current_user.challenges.build(challenges_params)
-	    if @challenge.save
-	      flash[:success] = "challenge created!"
-	      redirect_to challenges_path
-	    else
-	      render root_url
-	      flash[:success] = "Retry to create challenge!"
-	    end
+		@user = User.all
+		# check if users has enough coins to create a challenge
+		if current_user.coins > 2	
+			@challenge = current_user.challenges.build(challenges_params)
+			current_user.coins -= 2
+		#		@user.update_attributes
+		    if @challenge.save
+		      flash[:success] = "challenge created!"
+		      redirect_to challenges_path
+		    else
+		      render root_url
+		      flash[:success] = "Retry to create challenge!"
+		    end
+		else
+			redirect_to user_path(current_user)
+			flash[:success] = "with less then 2 coins it doesn't work"
+		end
 	end
 
 
@@ -33,7 +44,7 @@
 	private
 
     def challenges_params
-      params.require(:challenge).permit(:playere_one, :playere_two, :challenge_game)
+      params.require(:challenge).permit(:challenge_game, :player_one, :player_two, :description)
     end
 
 

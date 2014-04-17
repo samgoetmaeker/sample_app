@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   	def show
 		@user = User.find(params[:id])
-		@challenges = @user.challenges.paginate(page: params[:page])  
+		@challenges = @user.challenges.paginate(page: params[:page], :per_page => 5)  
  	end
 
  	def edit
@@ -40,10 +40,13 @@ class UsersController < ApplicationController
 	    redirect_to users_url
 	end
 	
+	def update_admin
+		@user = User.all
+	end
 
 	def create
 		
-		@user = User.new(user_params)
+		@user = User.new(user_params,:coins => "10")
 
 	    if @user.save
 	      sign_in @user
@@ -58,7 +61,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :avatar_url)
+		params.require(:user).permit(:nickname, :email, :coins, :password, :password_confirmation, :avatar_url,:coins)
 	end
 
 

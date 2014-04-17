@@ -2,13 +2,22 @@
 <h1>Users</h1>
 
 
-  <% @challenge.each do |challenge| %>
+  <% @challenge.each do |c| %>
 
 
-<b>name : </b><%= challenge.player_one %><br />
-<b>name : </b><%= challenge.player_two %><br />
-<b>game : </b><%= challenge.challenge_game %><br />
-Challenge created <%= time_ago_in_words(challenge.created_at) %> ago. by <%= link_to challenge.user_id, user_path(challenge.user_id) %>
+<b>name : </b><%= c.player_one %>
+<%= versus %>
+<b>name : </b><%= c.player_two %><br />
+<b>game : </b><%= c.challenge_game %><br />
+<% if c.description? %>
+<b>description : </b><%= c.description %><br />
+<% end %>
+Challenge created <%= time_ago_in_words(c.created_at, include_seconds: true) %> ago.
+ by <%= link_to c.user_id, user_path(c.user_id) %>
+
+ <!--test code voor het weergeven van een foto van de geselcteerde player -->
+image_tag avatar_url(@user.find_by_nickname(c.player_one).email) 
+user.find_by_nickname(c.player_one)
 <!-- hier wil ik de username die de challenge gemaakt heeft-->
 <hr>
 

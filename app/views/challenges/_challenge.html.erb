@@ -7,6 +7,6 @@
   <% if current_user?(challenge.user) %>
     <%= button_to "delete", challenge, method: :delete,
                                      confirm: "You sure?",
-                                     title: " vs " %>
+                                     title: " vs ",class: "btn btn-small btn-primary" %>
   <% end %>
 </li>

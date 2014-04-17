@@ -1,10 +1,11 @@
 <%= form_for(@challenge) do |f| %>
   
   <div class="field">
-    <%= f.text_field :player_one, placeholder: "Player one..." %>
-    <%= f.text_field :player_two, placeholder: "Player two..." %>
-    <%= f.text_field :challenge_game, placeholder: "wich game???" %>
-   
+    <%= f.text_field :player_one, placeholder: "Player one..." %>*<br />
+    <%= f.text_field :player_two, placeholder: "Player two..." %>*<br />
+    <%= f.text_field :challenge_game, placeholder: "wich game???" %>*<br />
+   	<%= f.text_field :description, placeholder: "how to play the game ..." %><br />
+   	* requierd
   </div>
   <%= f.submit "Create challenge", class: "btn btn-large btn-primary" %>
 <% end %>
