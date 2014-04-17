@@ -1,7 +1,7 @@
  class ChallengesController < ApplicationController 
 	include SessionsHelper
 	before_action :signed_in_user
-
+	
 	def new
   		@challenge = Challenge.new
   		@user = User.all
@@ -12,10 +12,12 @@
 		@user = User.all
 		# check if users has enough coins to create a challenge
 		if current_user.coins > 2	
+			
 			@challenge = current_user.challenges.build(challenges_params)
-			current_user.coins -= 2
+			
 		#		@user.update_attributes
 		    if @challenge.save
+		      current_user.update_column('coins', current_user.coins - 2)
 		      flash[:success] = "challenge created!"
 		      redirect_to challenges_path
 		    else
@@ -44,7 +46,8 @@
 	private
 
     def challenges_params
-      params.require(:challenge).permit(:challenge_game, :player_one, :player_two, :description)
+      
+       params.require(:challenge).permit(:challenge_game, :player_one_id, :player_two_id, :description, user_attributes: [:id, :coins]) 
     end
 
 

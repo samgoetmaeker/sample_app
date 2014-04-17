@@ -11,7 +11,7 @@ class UsersController < ApplicationController
    	end
 
    	def index
-	    @users = User.paginate(page: params[:page], :per_page => 10)
+	    @users = User.all.sort{|user_1, user_2| user_2.total_score <=> user_1.total_score}
    	end
 
   	def show
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
 	def create
 		
-		@user = User.new(user_params,:coins => "10")
+		@user = User.new(user_params,:coins => 10)
 
 	    if @user.save
 	      sign_in @user
@@ -56,8 +56,29 @@ class UsersController < ApplicationController
 	      render 'new'
 	    end
 	end
+
+	def admin_page
+		@users = User.paginate(page: params[:page], :per_page => 10)
+	end
+
+	def coins_up
+		@user = User.find(params[:id])
+		@user.update_column('coins', @user.coins + 6)
+		redirect_to admin_path
+	end
+
+	def coins_down
+		@user = User.find(params[:id])
+		@user.update_column('coins', @user.coins - 2)
+		redirect_to admin_path
+	end
+
+
+
 	# chal = Challenge.create(:player_one => "pittamadam",:player_two => "poldendrol", :user_id => "16")		
 	# user = User.create(:nickname => "foo", :email => "foo@bar.com", :password => "foobar", password_confirmation  => "foobar")
+
+
 	private
 
 	def user_params

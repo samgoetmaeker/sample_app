@@ -28,6 +28,9 @@
 				<%= u.text_field :avatar_url %><br />
 				<%= u.password_field :password %><br />
 				<%= u.password_field :password_confirmation %>
+				<% if current_user.admin? && !current_user?(u) %>
+		    	<%= u.text_field :coins %>
+		 	  <% end %>
 			</td>
 		</tr>
 

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	#attr_acessor :password
 	has_many :challenges, dependent: :destroy
 	has_secure_password
-
+	has_many :scores
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
 
 	  def User.hash(token)
 	    Digest::SHA1.hexdigest(token.to_s)
+	  end
+
+	  def to_s
+	  	nickname
+	  end
+	  
+	  def total_score
+	  	scores.sum(:points)
 	  end
 
 	  private

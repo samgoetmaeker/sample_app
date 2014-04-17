@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
 
+  resources :games
+
 resources :users
 resources :challenges
 
@@ -11,7 +13,9 @@ match "/challenges"   => "pages#challenges", via: [:get, :post]
 match "/signup"       => "users#new", via: [:get]
 match "/signin"       => "sessions#new",         via: [:get]
 match "/signout"      => "sessions#destroy",     via:  [:get, :delete]
-
+match "/admin"        => "users#admin_page", via: [:get,:put]
+post '/coins_up/:id'   => "users#coins_up" 
+post '/coins_down/:id' => "users#coins_down"
 
 
 
